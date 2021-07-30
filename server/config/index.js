@@ -19,6 +19,7 @@ const config = {
 		isAdmin: process.env.USER_ADMIN,
 	},
 };
+console.log(config);
 
 bCrypt.hash(config.root_user.password, parseInt(config.rounds_bcr), (error, encrypted) => {
 	if (error) {
