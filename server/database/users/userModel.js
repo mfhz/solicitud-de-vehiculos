@@ -32,7 +32,11 @@ const userModel = sequelize.define(
 		},
 		isAdmin: {
 			type: DataTypes.BOOLEAN,
-			allowNull: false,
+			defaultValue: false,
+		},
+		isDisable: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
 		},
 	},
 	{ timestamps: false }

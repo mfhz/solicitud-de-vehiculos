@@ -5,6 +5,7 @@ const config = require("../config/index");
 let users = [
 	{ 
 		isAdmin: true, 
+		isDisable: false,
 		name: 'Sebastian', 
 		last_name: 'Lopez',
         cedula: 1017241569,
@@ -13,7 +14,8 @@ let users = [
 		password: 'Mh2021-+' 
 	},
     { 
-		isAdmin: false, 
+		isAdmin: false,
+		isDisable: false, 
 		name: 'Daniela',
 		last_name: 'Fajardo',
         cedula: 1017241568,

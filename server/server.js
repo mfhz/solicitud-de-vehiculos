@@ -19,7 +19,7 @@ app.use('/user', userRoutes);
 
 app.use(function (err, req, res, next) {
 	console.error(err.stack);
-	res.status(500).send(':(');
+	res.status(500).send('Error interno');
 });
 
 //SERVER PORT
