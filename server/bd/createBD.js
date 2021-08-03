@@ -11,8 +11,12 @@ async function syncTables() {
 		});
 		await conection.query(`CREATE DATABASE IF NOT EXISTS \`${config.dbName}\`;`);
 		const userModel = require("../database/users/userModel");
+		const statuModel = require("../database/status/statusModel");
+		const orderModel = require("../database/orders/orderModel");
 		await userModel.sync();
 		await userModel.create(config.root_user);
+		await statuModel.sync();
+		await orderModel.sync();
 	} catch (error) {
 		console.log(error);		
 	}
