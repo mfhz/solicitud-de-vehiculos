@@ -7,7 +7,11 @@ const statusModel = sequelize.define(
 		name: {
             type: DataTypes.STRING(20),
             allowNull: false,
-        }
+        },
+		isDisable: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		}
 	},
 	{ timestamps: false }
 );

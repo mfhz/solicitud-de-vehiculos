@@ -6,6 +6,7 @@ const cors = require("cors");
 const config = require('./config/index');
 //Routes
 const userRoutes = require('./components/users/network');
+const statusRoutes = require('./components/status/network');
 //Database
 const db = require('./database/index');
 //Express
@@ -16,6 +17,7 @@ app.options('*', cors());
 app.use(express.json());
 //Routes Implementacion
 app.use('/user', userRoutes);
+app.use('/status', statusRoutes);
 
 app.use(function (err, req, res, next) {
 	console.error(err.stack);

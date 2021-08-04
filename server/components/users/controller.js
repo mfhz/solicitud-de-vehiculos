@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const bCrypt = require("bcrypt");
 const userModel = require("../../database/users/userModel");
 const config = require("../../config/index");
-const { findByPk } = require("../../database/users/userModel");
+// const { findByPk } = require("../../database/users/userModel");
 
 const loginUser = (recibed_password, recibed_email) => {
 	return new Promise(async (res, rejc) => {
