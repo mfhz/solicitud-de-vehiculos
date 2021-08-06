@@ -7,6 +7,7 @@ const config = require('./config/index');
 //Routes
 const userRoutes = require('./components/users/network');
 const statusRoutes = require('./components/status/network');
+const orderRoutes = require('./components/orders/network');
 //Database
 const db = require('./database/index');
 //Express
@@ -18,6 +19,7 @@ app.use(express.json());
 //Routes Implementacion
 app.use('/user', userRoutes);
 app.use('/status', statusRoutes);
+app.use('/order', orderRoutes);
 
 app.use(function (err, req, res, next) {
 	console.error(err.stack);

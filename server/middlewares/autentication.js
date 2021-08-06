@@ -6,7 +6,7 @@ const autentication = (req, res, next) => {
 	if (authorization) {
 		let token = authorization.split(" ")[1];
 		jwt.verify(token, config.jwtsecret, (error, decoded) => {
-            console.log(decoded);
+            // console.log(decoded);
 			if (error) {
 				return res.status(401).json({ message: 'token no valido' });
 			}

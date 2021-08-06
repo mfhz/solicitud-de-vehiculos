@@ -20,8 +20,12 @@ const orderModel = sequelize.define(
 		},
 		statuId: {
 			type: DataTypes.INTEGER,
-			allowNull: false,
+			defaultValue: 1,
 		},
+		isDisable: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		}
 	},
 	{ timestamps: false }
 );
