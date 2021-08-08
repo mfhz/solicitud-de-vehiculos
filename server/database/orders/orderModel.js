@@ -16,24 +16,33 @@ const orderModel = sequelize.define(
         },
 		userId: {
 			type: DataTypes.INTEGER,
-			allowNull: false,
+			references: {
+				model: userModel,
+				key: 'id',
+			},
 		},
-		statuId: {
+		statusId: {
 			type: DataTypes.INTEGER,
+			references: {
+				model: statusModel,
+				key: 'id',
+			},
 			defaultValue: 1,
+			allowNull: false,
 		},
 		isDisable: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
+			allowNull: false,
 		}
 	},
 	{ timestamps: false }
 );
-// orderModel.belongsTo(userModel, {
-// 	onUpdate: 'cascade'
-// });
-// orderModel.belongsTo(statusModel, {
-// 	onUpdate: 'cascade'
-// });
+orderModel.belongsTo(userModel, {
+	onUpdate: 'cascade'
+});
+orderModel.belongsTo(statusModel, {
+	onUpdate: 'cascade'
+});
 
 module.exports = orderModel;

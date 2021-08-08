@@ -68,7 +68,7 @@ const updateOrderById = (id, data) => {
             })
             .catch((error) => {
                 console.log(error);
-                rejc({ status: 500, message: 'Intente de nuevo' });
+                rejc({ status: 500, message: 'Por favor ingresa el ID del servicio' });
             });
     });
 };
@@ -85,7 +85,7 @@ const deleteOrderById = (id, data) => {
 				}
 			})
 			.catch((error) => {
-				rejc({ status: 500, message: 'intenta de nuevo' });
+				rejc({ status: 500, message: 'Por favor ingresa el ID del servicio' });
 			});
 	});
 };

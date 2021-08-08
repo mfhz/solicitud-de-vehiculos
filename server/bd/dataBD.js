@@ -35,16 +35,11 @@ let status = [
 	{ name: 'Pendiente' }
 ];
 
-let orders = [
-	{
-		comments: 'Vehiculo patineta para 2 Toneladas',
-		userId: 2,
-		statuId: 1
-	},
+let orders = [	
 	{
 		comments: 'Vehiculo para carga larga y pesada 10 Toneladas',
 		userId: 1,
-		statuId: 1
+		statusId: 1
 	},
 ];
 
