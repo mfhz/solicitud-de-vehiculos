@@ -1,6 +1,7 @@
 const userModel = require("../database/users/userModel");
 const statusModel = require("../database/status/statusModel");
 const orderModel = require("../database/orders/orderModel");
+const sourceModel = require('../database/source/sourceModel');
 const bCrypt = require("bcrypt");
 const config = require("../config/index");
 // const { NOW } = require("sequelize/types");
@@ -35,11 +36,18 @@ let status = [
 	{ name: 'Pendiente' }
 ];
 
+let source = [
+	{ name: 'Bogotá' },
+	{ name: 'Medellín' },
+	{ name: 'Cali' }
+];
+
 let orders = [	
 	{
 		comments: 'Vehiculo para carga larga y pesada 10 Toneladas',
 		userId: 1,
-		statusId: 1
+		statusId: 1,
+		sourceId: 2
 	},
 ];
 
@@ -65,6 +73,14 @@ users.forEach(async (user) => {
 status.forEach(async (state) => {
 	try {
 		await statusModel.create(state);
+	} catch (error) {
+		console.log(error);
+	}
+});
+
+source.forEach(async (sources) => {
+	try {
+		await sourceModel.create(sources);
 	} catch (error) {
 		console.log(error);
 	}
