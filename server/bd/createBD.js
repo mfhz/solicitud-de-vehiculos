@@ -13,11 +13,13 @@ async function syncTables() {
 		const userModel = require("../database/users/userModel");
 		const statuModel = require("../database/status/statusModel");
 		const sourceModel = require("../database/source/sourceModel");
+		const destinyModel = require("../database/destiny/destinyModel");
 		const orderModel = require("../database/orders/orderModel");
 		await userModel.sync();
 		await userModel.create(config.root_user);
 		await statuModel.sync();
 		await sourceModel.sync();
+		await destinyModel.sync();
 		await orderModel.sync();
 		
 	} catch (error) {

@@ -1,12 +1,19 @@
-const {DataTypes, NOW} = require("sequelize");
+const {DataTypes, NOW, QueryInterface} = require("sequelize");
 const sequelize = require("../index");
 const userModel = require("../users/userModel");
 const statusModel = require("../status/statusModel");
 const sourceModel = require("../source/sourceModel");
+const destinyModel = require("../destiny/destinyModel");
+
 
 const orderModel = sequelize.define(
 	'orders',
 	{
+		id: {
+			type: DataTypes.INTEGER,
+			autoIncrement: true,
+			primaryKey: true
+		},
 		date: {
             type: DataTypes.DATE,
             defaultValue: NOW(),
@@ -40,6 +47,14 @@ const orderModel = sequelize.define(
 			},
 			allowNull: false,
 		},
+		destinyId: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: destinyModel,
+				key: 'id',
+			},
+			allowNull: false,
+		},
 		isDisable: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
@@ -48,14 +63,22 @@ const orderModel = sequelize.define(
 	},
 	{ timestamps: false }
 );
+
 orderModel.belongsTo(userModel, {
-	onUpdate: 'cascade'
+	foreignKey: 'userId',
+	targetKey: 'id'
 });
 orderModel.belongsTo(statusModel, {
-	onUpdate: 'cascade'
+	foreignKey: 'statusId',
+	targetKey: 'id'
 });
 orderModel.belongsTo(sourceModel, {
-	onUpdate: 'cascade'
+	foreignKey: 'sourceId',
+	targetKey: 'id'
+});
+orderModel.belongsTo(destinyModel, {
+	foreignKey: 'destinyId',
+	targetKey: 'id'
 });
 
 module.exports = orderModel;
