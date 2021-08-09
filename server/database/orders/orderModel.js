@@ -4,6 +4,7 @@ const userModel = require("../users/userModel");
 const statusModel = require("../status/statusModel");
 const sourceModel = require("../source/sourceModel");
 const destinyModel = require("../destiny/destinyModel");
+const clientModel = require("../clients/clientModel");
 
 
 const orderModel = sequelize.define(
@@ -55,6 +56,14 @@ const orderModel = sequelize.define(
 			},
 			allowNull: false,
 		},
+		clientId: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: clientModel,
+				key: 'id',
+			},
+			allowNull: false,
+		},
 		isDisable: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
@@ -78,6 +87,10 @@ orderModel.belongsTo(sourceModel, {
 });
 orderModel.belongsTo(destinyModel, {
 	foreignKey: 'destinyId',
+	targetKey: 'id'
+});
+orderModel.belongsTo(clientModel, {
+	foreignKey: 'clientId',
 	targetKey: 'id'
 });
 

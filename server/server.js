@@ -10,6 +10,7 @@ const statusRoutes = require('./components/status/network');
 const orderRoutes = require('./components/orders/network');
 const sourceRoutes = require('./components/source/network');
 const destinyRoutes = require('./components/destiny/network');
+const clientRoutes = require('./components/clients/network');
 //Database
 const db = require('./database/index');
 //Express
@@ -24,6 +25,7 @@ app.use('/status', statusRoutes);
 app.use('/order', orderRoutes);
 app.use('/source', sourceRoutes);
 app.use('/destiny', destinyRoutes);
+app.use('/client', clientRoutes);
 
 app.use(function (err, req, res, next) {
 	console.error(err.stack);

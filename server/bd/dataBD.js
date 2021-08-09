@@ -3,6 +3,7 @@ const statusModel = require("../database/status/statusModel");
 const orderModel = require("../database/orders/orderModel");
 const sourceModel = require('../database/source/sourceModel');
 const destinyModel = require('../database/destiny/destinyModel');
+const clientModel = require('../database/clients/clientModel');
 const bCrypt = require("bcrypt");
 const config = require("../config/index");
 // const { NOW } = require("sequelize/types");
@@ -49,14 +50,24 @@ let destiny = [
 	{ sourceId: 1, name: 'Pasto'},
 ];
 
+let clients = [
+	{	
+		name: 'Rotrasvehi',
+		nit: 900434012
+	},
+	{	name: 'Instalcom',
+		nit: 900128780
+	}
+];
+
 let orders = [	
 	{
 		sourceId: 3,
 		destinyId: 1,
+		clientId: 1,
 		comments: 'Vehiculo para carga larga y pesada 10 Toneladas',
 		userId: 1,
-		statusId: 1,
-		
+		statusId: 1				
 	},
 ];
 
@@ -87,6 +98,14 @@ status.forEach(async (state) => {
 	}
 });
 
+clients.forEach(async (client) => {
+	try {
+		await clientModel.create(client);
+	} catch (error) {
+		console.log(error);
+	}
+});
+
 source.forEach(async (sources) => {
 	try {
 		await sourceModel.create(sources);
@@ -110,3 +129,4 @@ orders.forEach(async (order) => {
 		console.log(error);
 	}
 });
+
