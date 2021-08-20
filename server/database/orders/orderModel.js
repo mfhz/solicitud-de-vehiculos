@@ -72,6 +72,11 @@ const orderModel = sequelize.define(
 			},
 			allowNull: false,
 		},
+		value: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+			defaultValue: 0,
+        },
 		isDisable: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
