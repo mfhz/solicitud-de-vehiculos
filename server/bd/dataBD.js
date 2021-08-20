@@ -1,8 +1,7 @@
 const userModel = require("../database/users/userModel");
 const statusModel = require("../database/status/statusModel");
 const orderModel = require("../database/orders/orderModel");
-const sourceModel = require('../database/source/sourceModel');
-const destinyModel = require('../database/destiny/destinyModel');
+const citiesModel = require('../database/cities/citiesModel');
 const clientModel = require('../database/clients/clientModel');
 const bCrypt = require("bcrypt");
 const config = require("../config/index");
@@ -39,15 +38,10 @@ let status = [
 	{ name: 'Pendiente' }
 ];
 
-let source = [
+let cities = [
 	{ name: 'Bogotá' },
 	{ name: 'Medellín' },
 	{ name: 'Cali' }
-];
-
-let destiny = [
-	{ sourceId: 3, name: 'Cartagena'},
-	{ sourceId: 1, name: 'Pasto'},
 ];
 
 let clients = [
@@ -106,17 +100,9 @@ clients.forEach(async (client) => {
 	}
 });
 
-source.forEach(async (sources) => {
+cities.forEach(async (city) => {
 	try {
-		await sourceModel.create(sources);
-	} catch (error) {
-		console.log(error);
-	}
-});
-
-destiny.forEach(async (destination) => {
-	try {
-		await destinyModel.create(destination);
+		await citiesModel.create(city);
 	} catch (error) {
 		console.log(error);
 	}

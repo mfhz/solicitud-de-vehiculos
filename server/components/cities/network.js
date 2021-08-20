@@ -3,18 +3,18 @@ const autenticate = require("../../middlewares/autentication");
 const autorization = require("../../middlewares/autorization");
 
 const {
-    getAllDestiny,
-    createDestiny,
-	getDestinyById,
-    updateDestinyById,
-    deleteDestinyById
+    getAllCities,
+    createCities,
+	getCitiesById,
+    updateCitiesById,
+    deleteCitiesById
 } = require('./controller');
 
-//DESTINY ROUTES
+//SOURCE ROUTES
 const router = express.Router();
 
 router.get('/getall', autenticate, autorization, (req, res) => {
-	getAllDestiny()
+	getAllCities()
 		.then((response) => {
 			res.status(200).json(response);
 		})
@@ -25,7 +25,7 @@ router.get('/getall', autenticate, autorization, (req, res) => {
 
 router.post('/create', autenticate, autorization, (req, res) => {
 	const reqSource = req.body;
-	createDestiny(reqSource)
+	createCities(reqSource)
 		.then((source) => {
 			res.status(200).json(source);
 		})
@@ -36,7 +36,7 @@ router.post('/create', autenticate, autorization, (req, res) => {
 
 router.get('/:id', autenticate, autorization, (req, res) => {
 	const { id } = req.params;
-	getDestinyById(id)
+	getCitiesById(id)
 		.then((response) => {
 			res.status(200).json(response);
 		})
@@ -48,7 +48,7 @@ router.get('/:id', autenticate, autorization, (req, res) => {
 router.patch('/update/:id', autenticate, autorization, (req, res) => {
 	const { id } = req.params;
 	const data = req.body;
-	updateDestinyById(id, data)
+	updateCitiesById(id, data)
 		.then((response) => {
 			res.status(200).json(response);
 		})
@@ -62,7 +62,7 @@ router.delete('/delete/:id', autenticate, autorization, (req, res) => {
 	const data = {
 		isDisable: true
 	}
-	deleteDestinyById(id, data)
+	deleteCitiesById(id, data)
 		.then((response) => {
 			res.status(200).json(response);
 		})

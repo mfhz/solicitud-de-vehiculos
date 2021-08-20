@@ -1,14 +1,14 @@
 const jwt = require("jsonwebtoken");
 const bCrypt = require("bcrypt");
-const sourceModel = require("../../database/source/sourceModel");
+const citiesModel = require("../../database/cities/citiesModel");
 const config = require("../../config/index");
 
-const getAllSource = () => {
+const getAllCities = () => {
 	return new Promise((res, rejc) => {
-		sourceModel
+		citiesModel
 			.findAll()
-			.then((source) => {
-				res(source);
+			.then((city) => {
+				res(city);
 			})
 			.catch((error) => {
 				rejc({ status: 500, message: 'intenta de nuevo' });
@@ -16,12 +16,12 @@ const getAllSource = () => {
 	});
 };
 
-const createSource = (data) => {
+const createCities = (data) => {
 	return new Promise((res, rejc) => {
 		if (!data.name) {
 			rejc({ status: 400, message: 'Se requiere el campo del nombre para crear un origen' });
 		} else {
-			sourceModel
+			citiesModel
                 .create(data)
                 .then((status) => {
                     res({ message: 'Origen creado correctamente' });
@@ -33,13 +33,13 @@ const createSource = (data) => {
 	});
 };
 
-const getSourceById = (id) => {
+const getCitiesById = (id) => {
 	return new Promise((res, rejc) => {
-        sourceModel
+        citiesModel
 			.findByPk(id, {})
-			.then((source) => {
-				if (source) {
-					res({ source: source });
+			.then((city) => {
+				if (city) {
+					res({ source: city });
 				} else {
 					rejc({ status: 404, message: `El origen ingresado no existe` });
 				}
@@ -51,9 +51,9 @@ const getSourceById = (id) => {
     });
 };
 
-const updateSourceById = (id, data) => {
+const updateCitiesById = (id, data) => {
 	return new Promise((res, rejc) => {
-        sourceModel
+        citiesModel
             .update(data, { where: { id: id } })
             .then((response) => {
                 if (response[0] === 1) {
@@ -68,9 +68,9 @@ const updateSourceById = (id, data) => {
     });
 };
 
-const deleteSourceById = (id, data) => {
+const deleteCitiesById = (id, data) => {
 	return new Promise((res, rejc) => {
-		sourceModel
+		citiesModel
 			.update(data, { where: { id: id } })
 			.then((response) => {
 				if (response == 1) {
@@ -87,9 +87,9 @@ const deleteSourceById = (id, data) => {
 
 
 module.exports = {
-    getAllSource,
-    createSource,
-	getSourceById,
-    updateSourceById,
-    deleteSourceById
+    getAllCities,
+    createCities,
+	getCitiesById,
+    updateCitiesById,
+    deleteCitiesById
 };

@@ -2,8 +2,8 @@ const {DataTypes, NOW} = require("sequelize");
 const sequelize = require("../index");
 
 
-const sourceModel = sequelize.define(
-    'source',
+const citiesModel = sequelize.define(
+    'city',
     {
         name: {
             type: DataTypes.STRING(20),
@@ -21,4 +21,4 @@ const sourceModel = sequelize.define(
 
 
 
-module.exports = sourceModel;
+module.exports = citiesModel;

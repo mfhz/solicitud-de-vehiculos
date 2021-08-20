@@ -2,8 +2,7 @@ const {DataTypes, NOW, QueryInterface} = require("sequelize");
 const sequelize = require("../index");
 const userModel = require("../users/userModel");
 const statusModel = require("../status/statusModel");
-const sourceModel = require("../source/sourceModel");
-const destinyModel = require("../destiny/destinyModel");
+const citiesModel = require("../cities/citiesModel");
 const clientModel = require("../clients/clientModel");
 
 
@@ -43,7 +42,7 @@ const orderModel = sequelize.define(
 		sourceId: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: sourceModel,
+				model: citiesModel,
 				key: 'id',
 			},
 			allowNull: false,
@@ -51,7 +50,7 @@ const orderModel = sequelize.define(
 		destinyId: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: destinyModel,
+				model: citiesModel,
 				key: 'id',
 			},
 			allowNull: false,
@@ -81,12 +80,8 @@ orderModel.belongsTo(statusModel, {
 	foreignKey: 'statusId',
 	targetKey: 'id'
 });
-orderModel.belongsTo(sourceModel, {
+orderModel.belongsTo(citiesModel, {
 	foreignKey: 'sourceId',
-	targetKey: 'id'
-});
-orderModel.belongsTo(destinyModel, {
-	foreignKey: 'destinyId',
 	targetKey: 'id'
 });
 orderModel.belongsTo(clientModel, {

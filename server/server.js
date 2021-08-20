@@ -8,8 +8,7 @@ const config = require('./config/index');
 const userRoutes = require('./components/users/network');
 const statusRoutes = require('./components/status/network');
 const orderRoutes = require('./components/orders/network');
-const sourceRoutes = require('./components/source/network');
-const destinyRoutes = require('./components/destiny/network');
+const citiesRoutes = require('./components/cities/network');
 const clientRoutes = require('./components/clients/network');
 //Database
 const db = require('./database/index');
@@ -23,8 +22,7 @@ app.use(express.json());
 app.use('/user', userRoutes);
 app.use('/status', statusRoutes);
 app.use('/order', orderRoutes);
-app.use('/source', sourceRoutes);
-app.use('/destiny', destinyRoutes);
+app.use('/cities', citiesRoutes);
 app.use('/client', clientRoutes);
 
 app.use(function (err, req, res, next) {
