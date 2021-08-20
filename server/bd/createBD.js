@@ -14,12 +14,14 @@ async function syncTables() {
 		const statuModel = require("../database/status/statusModel");
 		const citiesModel = require("../database/cities/citiesModel");
 		const clientModel = require("../database/clients/clientModel");
+		const vehicleTypeModel = require("../database/vehicleType/vehicleTypeModel");
 		const orderModel = require("../database/orders/orderModel");
 		await userModel.sync();
 		await userModel.create(config.root_user);
 		await statuModel.sync();
-		await clientModel.sync();
 		await citiesModel.sync();
+		await clientModel.sync();
+		await vehicleTypeModel.sync();
 		await orderModel.sync();
 		
 	} catch (error) {

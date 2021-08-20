@@ -4,6 +4,7 @@ const userModel = require("../users/userModel");
 const statusModel = require("../status/statusModel");
 const citiesModel = require("../cities/citiesModel");
 const clientModel = require("../clients/clientModel");
+const vehicleTypeModel = require("../vehicleType/vehicleTypeModel");
 
 
 const orderModel = sequelize.define(
@@ -63,6 +64,14 @@ const orderModel = sequelize.define(
 			},
 			allowNull: false,
 		},
+		vehicleTypeId: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: vehicleTypeModel,
+				key: 'id',
+			},
+			allowNull: false,
+		},
 		isDisable: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
@@ -86,6 +95,10 @@ orderModel.belongsTo(citiesModel, {
 });
 orderModel.belongsTo(clientModel, {
 	foreignKey: 'clientId',
+	targetKey: 'id'
+});
+orderModel.belongsTo(vehicleTypeModel, {
+	foreignKey: 'vehicleTypeId',
 	targetKey: 'id'
 });
 

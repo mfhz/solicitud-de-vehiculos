@@ -3,6 +3,7 @@ const statusModel = require("../database/status/statusModel");
 const orderModel = require("../database/orders/orderModel");
 const citiesModel = require('../database/cities/citiesModel');
 const clientModel = require('../database/clients/clientModel');
+const vehicleTypeModel = require('../database/vehicleType/vehicleTypeModel');
 const bCrypt = require("bcrypt");
 const config = require("../config/index");
 // const { NOW } = require("sequelize/types");
@@ -54,11 +55,20 @@ let clients = [
 	}
 ];
 
+let vehicleType = [
+	{	
+		name: 'Mula'
+	},
+	{	name: 'Camion'
+	}
+];
+
 let orders = [	
 	{
 		sourceId: 3,
 		destinyId: 1,
 		clientId: 1,
+		vehicleTypeId: 1,
 		comments: 'Vehiculo para carga larga y pesada 10 Toneladas',
 		userId: 1,
 		statusId: 1				
@@ -92,6 +102,14 @@ status.forEach(async (state) => {
 	}
 });
 
+cities.forEach(async (city) => {
+	try {
+		await citiesModel.create(city);
+	} catch (error) {
+		console.log(error);
+	}
+});
+
 clients.forEach(async (client) => {
 	try {
 		await clientModel.create(client);
@@ -100,9 +118,9 @@ clients.forEach(async (client) => {
 	}
 });
 
-cities.forEach(async (city) => {
+vehicleType.forEach(async (type) => {
 	try {
-		await citiesModel.create(city);
+		await vehicleTypeModel.create(type);
 	} catch (error) {
 		console.log(error);
 	}
