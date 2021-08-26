@@ -1,5 +1,48 @@
-.vscode/
-server/package-lock.json
-server/package.json
-server/node_modules
-.DS_Store
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <main class="container">
+        <section class="section1">
+            <div class="section1__containerImg">
+                <img src="./assets/img/img_portada.png" class="section1__containerImg--img" alt="">
+            </div>
+            <h3 class="section1__title"><span>¡Bienvenido!</span> <br> <br> Plataforma de gestión de solicitudes de transportes </h3>
+        </section>
+        <section class="section2">
+            <div class="section2__container">
+                <div class="containerImg">
+                    <img src="./assets/img/logoRotras.png" class="containerImg__logo" alt="">
+                </div>
+                <p class="text"><br> Por favor inicia sesión para continuar</p>
+            </div>
+            <form action="POST" class="section2__form">
+                <div class="section2__form--inputs">
+                    <label for="email"></label>
+                    <input type="email" name="Email" id="email" placeholder="Usuario">
+                    <label for="pass"></label>
+                    <input type="password" name="Password" id="pass" placeholder="Contraseña">
+                </div>
+                <div class="section2__form--checkbox">
+                    <div class="containers">
+                        <input type="checkbox" name="Checkbox" id="check">
+                        <label for="check">Recuerdame</label>
+                    </div>
+                    <a class="text" href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <input type="button" class="section2__form--button" value="Iniciar Sesión">
+                <p class="section2__form--text" >Al iniciar sesión usted aceptar nuestros <br> <span class="span1">Terminos y Condiciones <span class="span2">&</span> Política de Privacidad</span></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

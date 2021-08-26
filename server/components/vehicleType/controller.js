@@ -18,13 +18,13 @@ const getAllVehicleType = () => {
 
 const createVehicleType = (data) => {
 	return new Promise((res, rejc) => {
-		if (!data.name || !data.nit) {
-			rejc({ status: 400, message: 'Se requieren todos los campos para crear un cliente' });
+		if (!data.name) {
+			rejc({ status: 400, message: 'Es necesario de un campo' });
 		} else {
 			vehicleTypeModel
                 .create(data)
                 .then((status) => {
-                    res({ message: 'Cliente creado correctamente' });
+                    res({ message: 'Tipo de vehiculo creado correctamente' });
                 })
                 .catch((error) => {
                     rejc({ status: 500, message: 'intenta de nuevo' });
@@ -41,7 +41,7 @@ const getVehicleTypeById = (id) => {
 				if (type) {
 					res({ type: type });
 				} else {
-					rejc({ status: 404, message: `El cliente ingresado no existe` });
+					rejc({ status: 404, message: `El tipo de vehiculo ingresado no existe` });
 				}
 			})
 			.catch((error) => {
@@ -57,9 +57,9 @@ const updateVehicleTypeById = (id, data) => {
             .update(data, { where: { id: id } })
             .then((response) => {
                 if (response[0] === 1) {
-                    res({ message: 'Cliente actualizado' });
+                    res({ message: 'Tipo de vehiculo actualizado' });
                 } else {
-                    rejc({ status: 400, message: 'No se pudo actualizar el cliente' });
+                    rejc({ status: 400, message: 'No se pudo actualizar el Tipo de vehiculo' });
                 }
             })
             .catch((error) => {
@@ -74,9 +74,9 @@ const deleteVehicleTypeById = (id, data) => {
 			.update(data, { where: { id: id } })
 			.then((response) => {
 				if (response == 1) {
-					res({ message: 'Cliente eliminado' });
+					res({ message: 'Tipo de vehiculo eliminado' });
 				} else {
-					rejc({ status: 400, message: 'El cliente no existe o no puede ser eliminado' });
+					rejc({ status: 400, message: 'El Tipo de vehiculo no existe o no puede ser eliminado' });
 				}
 			})
 			.catch((error) => {
