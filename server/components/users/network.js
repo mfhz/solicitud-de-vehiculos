@@ -16,8 +16,8 @@ const router = express.Router();
 
 router.post('/access', (req, res) => {
 	console.log(req.body);
-	const { password, email } = req.body;
-	loginUser(password, email)
+	const { Password, Email } = req.body;
+	loginUser(Password, Email)
 		.then((jwt) => {
 			res.status(200).json(jwt);
 		})
