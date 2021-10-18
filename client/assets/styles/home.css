@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  background-color: #2a2a2a;
+  font-size: 0.875rem;
+}
+
+body header .header {
+  padding: 0 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  border-bottom-width: 1px;
+  border-color: #2d3748;
+  border-style: solid;
+}
+
+body header .header .header__image img {
+  height: 48px;
+  width: 48px;
+}
+
+body header .header .header__title h2 {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+body header .header .header__profile {
+  width: 35px;
+  height: 35px;
+  background-color: #eaf3fe;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+body header .header .header__profile p {
+  color: #7f9cf4;
+}
+/*# sourceMappingURL=home.css.map */
